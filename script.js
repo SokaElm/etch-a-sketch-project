@@ -34,6 +34,7 @@ function createSquares(gridSize) {
       div.appendChild(childs);
       childs.classList.toggle("childDivs");
       childs.style.width = container.offsetWidth / gridSize + "px";
+      childs.style.opacity = "0.1";
     }
   }
   return "childDivs";
@@ -43,7 +44,23 @@ function addBackground(childDivs) {
   const node = document.querySelectorAll(".childDivs");
   node.forEach((div) => {
     div.addEventListener("mouseenter", (e) => {
-      e.target.style.background = "pink";
+      e.target.style.background = getRandomColor();
+      e.target.style.opacity = increaseOpacity(e.target.style.opacity);
     });
   });
+}
+
+function getRandomColor() {
+  const red = Math.floor(Math.random() * 256);
+  const green = Math.floor(Math.random() * 256);
+  const blue = Math.floor(Math.random() * 256);
+
+  const color = "rgb(" + red + "," + green + "," + blue + ")";
+  return color;
+}
+
+function increaseOpacity(currentOpacity) {
+  currentOpacity = Number(currentOpacity);
+  let newOpacity = Math.min(currentOpacity + 0.1, 1);
+  return newOpacity;
 }
