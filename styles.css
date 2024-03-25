@@ -1,0 +1,23 @@
+.childDivs {
+  display: flex;
+  border: dotted black 1px;
+  padding: 0;
+}
+
+.contDivs {
+  border: dotted black 1px;
+  display: flex;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  height: 3200px;
+  width: 3200px;
+}
+
+button {
+  margin: 20px;
+}
